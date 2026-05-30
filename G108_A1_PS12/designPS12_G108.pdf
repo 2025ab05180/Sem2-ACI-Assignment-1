@@ -1,0 +1,123 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Length 4155 >>
+stream
+BT /F1 16 Tf 42 805 Td (Assignment 1 - PS12 - Optimal Planner) Tj ET
+BT /F1 9 Tf 42 776 Td (Group ID: G108) Tj ET
+BT /F1 9 Tf 42 755 Td (Team members: ARTHIKA G.; SRINEVEDA R S.; ASWATHY H.; AMIYA PALAI.; KUTAREKAR) Tj ET
+BT /F1 9 Tf 42 744 Td (NISHCHAL AJAY.) Tj ET
+BT /F1 12 Tf 42 723 Td (1. Problem Definition) Tj ET
+BT /F1 9 Tf 42 698 Td (The problem is to plan a route for a delivery robot in a static 5 x 5 warehouse) Tj ET
+BT /F1 9 Tf 42 687 Td (grid. The robot starts at S = \(0, 0\), must reach G = \(4, 4\), and must avoid blocked) Tj ET
+BT /F1 9 Tf 42 676 Td (cells marked X. The allowed moves are Up, Down, Left, and Right. Diagonal movement) Tj ET
+BT /F1 9 Tf 42 665 Td (is not allowed. Each valid move has cost 1.) Tj ET
+BT /F1 9 Tf 42 644 Td (The blocked cells in the supplied grid are \(0, 3\), \(1, 1\), \(1, 3\), \(2, 1\), \(3, 2\),) Tj ET
+BT /F1 9 Tf 42 633 Td (and \(3, 3\). The search uses Local Beam Search with beam width k = 2.) Tj ET
+BT /F1 12 Tf 42 612 Td (2. PEAS Definition) Tj ET
+BT /F1 9 Tf 42 587 Td (Performance measure: Reach the goal from the start, avoid obstacles and invalid) Tj ET
+BT /F1 9 Tf 42 576 Td (moves, minimize total path cost, and print a clear search trace with selected beam) Tj ET
+BT /F1 9 Tf 42 565 Td (states and heuristic values.) Tj ET
+BT /F1 9 Tf 42 544 Td (Environment: A fully observable, deterministic, static 2D warehouse grid containing) Tj ET
+BT /F1 9 Tf 42 533 Td (free cells, blocked cells, one start state, and one goal state.) Tj ET
+BT /F1 9 Tf 42 512 Td (Actuators: Move Up, Move Down, Move Left, and Move Right.) Tj ET
+BT /F1 9 Tf 42 491 Td (Sensors: The robot reads its current position, grid boundaries, blocked cells, start) Tj ET
+BT /F1 9 Tf 42 480 Td (position, and goal position from the input grid.) Tj ET
+BT /F1 12 Tf 42 459 Td (3. Heuristic And Cost Functions) Tj ET
+BT /F1 9 Tf 42 434 Td (The heuristic function is Manhattan Distance:) Tj ET
+BT /F1 9 Tf 42 413 Td (h\(n\) = |goal_row - current_row| + |goal_column - current_column|) Tj ET
+BT /F1 9 Tf 42 392 Td (This heuristic is appropriate because the robot can move only horizontally or) Tj ET
+BT /F1 9 Tf 42 381 Td (vertically. It gives the minimum number of moves needed to reach the goal in an) Tj ET
+BT /F1 9 Tf 42 370 Td (obstacle-free grid.) Tj ET
+BT /F1 9 Tf 42 349 Td (The cost function assigns cost 1 to every valid move. Therefore:) Tj ET
+BT /F1 9 Tf 42 328 Td (g\(n\) = number of moves from S to n) Tj ET
+BT /F1 9 Tf 42 317 Td (total path cost = number of moves in the final route) Tj ET
+BT /F1 9 Tf 42 296 Td (For the given grid, the Manhattan lower bound from S = \(0, 0\) to G = \(4, 4\) is 8.) Tj ET
+BT /F1 9 Tf 42 285 Td (The implemented search finds a route of cost 8, so the route is optimal for this) Tj ET
+BT /F1 9 Tf 42 274 Td (grid.) Tj ET
+BT /F1 12 Tf 42 253 Td (4. Algorithm Design) Tj ET
+BT /F1 9 Tf 42 228 Td (The program implements Local Beam Search with k = 2. The initial beam contains only) Tj ET
+BT /F1 9 Tf 42 217 Td (the start node. At every iteration, successors are generated from all states in the) Tj ET
+BT /F1 9 Tf 42 206 Td (current beam using the move order Up, Down, Left, Right. Invalid successors are) Tj ET
+BT /F1 9 Tf 42 195 Td (removed if they are outside the grid, blocked by X, or already present in the same) Tj ET
+BT /F1 9 Tf 42 184 Td (path.) Tj ET
+BT /F1 9 Tf 42 163 Td (Duplicate states are removed by position. If the same position is reached through) Tj ET
+BT /F1 9 Tf 42 152 Td (more than one path, the implementation keeps the best node using the deterministic) Tj ET
+BT /F1 9 Tf 42 141 Td (order: lower heuristic, lower path cost, lower row index, lower column index, and) Tj ET
+BT /F1 9 Tf 42 130 Td (finally lexicographic path order. The best k states are inserted into a bounded) Tj ET
+BT /F1 9 Tf 42 119 Td (BeamFringe and become the next beam. The search stops when the goal is selected in) Tj ET
+BT /F1 9 Tf 42 108 Td (the beam or when no valid successor remains.) Tj ET
+BT /F1 9 Tf 42 87 Td (For the given grid, the final path is:) Tj ET
+BT /F1 9 Tf 42 66 Td (\(0, 0\) -> \(0, 1\) -> \(0, 2\) -> \(1, 2\) -> \(2, 2\) -> \(2, 3\) -> \(2, 4\) -> \(3, 4\)) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 3370 >>
+stream
+BT /F1 9 Tf 42 805 Td (-> \(4, 4\)) Tj ET
+BT /F1 9 Tf 42 784 Td (Total path cost = 8.) Tj ET
+BT /F1 12 Tf 42 763 Td (5. Data Structures And Fringe Design) Tj ET
+BT /F1 9 Tf 42 738 Td (SearchNode stores the current position, full path, path cost, and heuristic value.) Tj ET
+BT /F1 9 Tf 42 727 Td (IterationRecord stores the trace for each iteration: current beam, generated) Tj ET
+BT /F1 9 Tf 42 716 Td (successors, duplicate-free successors, and selected beam states. BeamFringe is a) Tj ET
+BT /F1 9 Tf 42 705 Td (bounded queue-like structure with capacity k. Its insert operation raises a clear) Tj ET
+BT /F1 9 Tf 42 694 Td (error when the fringe is full, and its delete operation raises a clear error when) Tj ET
+BT /F1 9 Tf 42 683 Td (the fringe is empty. This satisfies the required data-structure error handling.) Tj ET
+BT /F1 9 Tf 42 662 Td (The grid is stored as a two-dimensional list. Candidate states are sorted using) Tj ET
+BT /F1 9 Tf 42 651 Td (Python's stable sorting, and duplicates are removed using a dictionary keyed by grid) Tj ET
+BT /F1 9 Tf 42 640 Td (position.) Tj ET
+BT /F1 12 Tf 42 619 Td (6. Complexity Analysis) Tj ET
+BT /F1 9 Tf 42 594 Td (Let k be the beam width, b be the branching factor, and d be the depth of the) Tj ET
+BT /F1 9 Tf 42 583 Td (solution. In this problem, b <= 4 because only four actions are possible. At each) Tj ET
+BT /F1 9 Tf 42 572 Td (level, at most k states are expanded and up to k*b successors are generated. The) Tj ET
+BT /F1 9 Tf 42 561 Td (successors are sorted to select the best k states.) Tj ET
+BT /F1 9 Tf 42 540 Td (Time complexity: O\(d * k * b log\(k*b\)\).) Tj ET
+BT /F1 9 Tf 42 519 Td (Space complexity: O\(k * d\), because each selected beam node stores its path. With) Tj ET
+BT /F1 9 Tf 42 508 Td (fixed k = 2 and b <= 4, the search is memory efficient compared with exhaustive) Tj ET
+BT /F1 9 Tf 42 497 Td (search.) Tj ET
+BT /F1 12 Tf 42 476 Td (7. Alternate Modeling Approach) Tj ET
+BT /F1 9 Tf 42 451 Td (An alternate way to model the problem is as a graph search problem solved using A*) Tj ET
+BT /F1 9 Tf 42 440 Td (Search. Each free grid cell becomes a node, and edges connect valid four-directional) Tj ET
+BT /F1 9 Tf 42 429 Td (neighbors with cost 1. A* uses f\(n\) = g\(n\) + h\(n\), where g\(n\) is the path cost so) Tj ET
+BT /F1 9 Tf 42 418 Td (far and h\(n\) is Manhattan Distance. With this admissible heuristic, A* can guarantee) Tj ET
+BT /F1 9 Tf 42 407 Td (an optimal path if one exists, but it may require more memory because it maintains) Tj ET
+BT /F1 9 Tf 42 396 Td (larger open and closed lists. Local Beam Search uses less memory by retaining only k) Tj ET
+BT /F1 9 Tf 42 385 Td (promising states at each level, but it can prune alternatives aggressively in harder) Tj ET
+BT /F1 9 Tf 42 374 Td (grids.) Tj ET
+BT /F1 12 Tf 42 353 Td (8. Implementation Notes) Tj ET
+BT /F1 9 Tf 42 328 Td (The Python file is modular and reads the grid from inputPS12.txt, so the grid is not) Tj ET
+BT /F1 9 Tf 42 317 Td (hardcoded. The output trace is written to outputPS12.txt and printed to the console.) Tj ET
+BT /F1 9 Tf 42 306 Td (Basic error handling is included for invalid input files, wrong dimensions, missing) Tj ET
+BT /F1 9 Tf 42 295 Td (start or goal states, invalid grid symbols, invalid k values, full fringe insertion,) Tj ET
+BT /F1 9 Tf 42 284 Td (and empty fringe deletion.) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000191 00000 n 
+0000004398 00000 n 
+0000004524 00000 n 
+0000007946 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+8072
+%%EOF

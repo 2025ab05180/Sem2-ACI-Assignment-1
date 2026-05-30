@@ -1,0 +1,182 @@
+Assignment 1 - PS12 - Optimal Planner
+Algorithm: Local Beam Search
+Beam width k = 2
+
+Input Grid:
+    0  1  2  3  4
+0:  S  0  0  X  0
+1:  0  X  0  X  0
+2:  0  X  0  0  0
+3:  0  0  X  X  0
+4:  0  0  0  0  G
+
+Start State: (0, 0)
+Goal State: (4, 4)
+
+Heuristic Function:
+h(n) = |goal_row - current_row| + |goal_column - current_column|
+This is Manhattan Distance, suitable for four-direction grid movement.
+
+Cost Function:
+Each valid move has path cost 1 unit.
+Total path cost = number of moves from Start to Goal.
+
+Iteration 0:
+Current Beam States:
+State: (0, 0), h = 8, cost = 0
+
+Generated Successor States:
+State: (1, 0), h = 7, cost = 1
+State: (0, 1), h = 7, cost = 1
+
+After Removing Duplicate States:
+State: (0, 1), h = 7, cost = 1
+State: (1, 0), h = 7, cost = 1
+
+Selected Best 2 Beam States:
+State: (0, 1), h = 7, cost = 1
+State: (1, 0), h = 7, cost = 1
+------------------------------------------------------------
+Iteration 1:
+Current Beam States:
+State: (0, 1), h = 7, cost = 1
+State: (1, 0), h = 7, cost = 1
+
+Generated Successor States:
+State: (0, 2), h = 6, cost = 2
+State: (2, 0), h = 6, cost = 2
+
+After Removing Duplicate States:
+State: (0, 2), h = 6, cost = 2
+State: (2, 0), h = 6, cost = 2
+
+Selected Best 2 Beam States:
+State: (0, 2), h = 6, cost = 2
+State: (2, 0), h = 6, cost = 2
+------------------------------------------------------------
+Iteration 2:
+Current Beam States:
+State: (0, 2), h = 6, cost = 2
+State: (2, 0), h = 6, cost = 2
+
+Generated Successor States:
+State: (1, 2), h = 5, cost = 3
+State: (3, 0), h = 5, cost = 3
+
+After Removing Duplicate States:
+State: (1, 2), h = 5, cost = 3
+State: (3, 0), h = 5, cost = 3
+
+Selected Best 2 Beam States:
+State: (1, 2), h = 5, cost = 3
+State: (3, 0), h = 5, cost = 3
+------------------------------------------------------------
+Iteration 3:
+Current Beam States:
+State: (1, 2), h = 5, cost = 3
+State: (3, 0), h = 5, cost = 3
+
+Generated Successor States:
+State: (2, 2), h = 4, cost = 4
+State: (4, 0), h = 4, cost = 4
+State: (3, 1), h = 4, cost = 4
+
+After Removing Duplicate States:
+State: (2, 2), h = 4, cost = 4
+State: (3, 1), h = 4, cost = 4
+State: (4, 0), h = 4, cost = 4
+
+Selected Best 2 Beam States:
+State: (2, 2), h = 4, cost = 4
+State: (3, 1), h = 4, cost = 4
+------------------------------------------------------------
+Iteration 4:
+Current Beam States:
+State: (2, 2), h = 4, cost = 4
+State: (3, 1), h = 4, cost = 4
+
+Generated Successor States:
+State: (2, 3), h = 3, cost = 5
+State: (4, 1), h = 3, cost = 5
+
+After Removing Duplicate States:
+State: (2, 3), h = 3, cost = 5
+State: (4, 1), h = 3, cost = 5
+
+Selected Best 2 Beam States:
+State: (2, 3), h = 3, cost = 5
+State: (4, 1), h = 3, cost = 5
+------------------------------------------------------------
+Iteration 5:
+Current Beam States:
+State: (2, 3), h = 3, cost = 5
+State: (4, 1), h = 3, cost = 5
+
+Generated Successor States:
+State: (2, 4), h = 2, cost = 6
+State: (4, 0), h = 4, cost = 6
+State: (4, 2), h = 2, cost = 6
+
+After Removing Duplicate States:
+State: (2, 4), h = 2, cost = 6
+State: (4, 2), h = 2, cost = 6
+State: (4, 0), h = 4, cost = 6
+
+Selected Best 2 Beam States:
+State: (2, 4), h = 2, cost = 6
+State: (4, 2), h = 2, cost = 6
+------------------------------------------------------------
+Iteration 6:
+Current Beam States:
+State: (2, 4), h = 2, cost = 6
+State: (4, 2), h = 2, cost = 6
+
+Generated Successor States:
+State: (1, 4), h = 3, cost = 7
+State: (3, 4), h = 1, cost = 7
+State: (4, 3), h = 1, cost = 7
+
+After Removing Duplicate States:
+State: (3, 4), h = 1, cost = 7
+State: (4, 3), h = 1, cost = 7
+State: (1, 4), h = 3, cost = 7
+
+Selected Best 2 Beam States:
+State: (3, 4), h = 1, cost = 7
+State: (4, 3), h = 1, cost = 7
+------------------------------------------------------------
+Iteration 7:
+Current Beam States:
+State: (3, 4), h = 1, cost = 7
+State: (4, 3), h = 1, cost = 7
+
+Generated Successor States:
+State: (4, 4), h = 0, cost = 8
+State: (4, 4), h = 0, cost = 8
+
+After Removing Duplicate States:
+State: (4, 4), h = 0, cost = 8
+
+Selected Best 2 Beam States:
+State: (4, 4), h = 0, cost = 8
+------------------------------------------------------------
+Search Result:
+Goal reached successfully.
+
+Final Path from Start to Goal:
+(0, 0) -> (0, 1) -> (0, 2) -> (1, 2) -> (2, 2) -> (2, 3) -> (2, 4) -> (3, 4) -> (4, 4)
+
+Total Path Cost: 8
+Optimality Note: The start-to-goal Manhattan lower bound is 8; the found path cost is 8, so this path is optimal for the given grid.
+
+Complexity Analysis:
+Let k be the beam width, b be the branching factor, and d be the search depth.
+For this grid, b <= 4 because movement is limited to Up, Down, Left, and Right.
+At each level, at most k states are expanded and up to k*b successors are sorted.
+Time Complexity: O(d * k * b log(k*b))
+Space Complexity: O(k * d), because each retained beam node stores its path.
+
+Data Structure Notes:
+A bounded BeamFringe stores the selected k states.
+BeamFringe.insert raises an error message when full.
+BeamFringe.delete raises an error message when empty.

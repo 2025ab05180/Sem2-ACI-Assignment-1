@@ -1,0 +1,10 @@
+# Assignment 1 - PS12 input grid for Group G108
+# Format:
+# <rows> <columns>
+# S = Start, G = Goal, X = blocked cell, 0 = free cell
+5 5
+S 0 0 X 0
+0 X 0 X 0
+0 X 0 0 0
+0 0 X X 0
+0 0 0 0 G

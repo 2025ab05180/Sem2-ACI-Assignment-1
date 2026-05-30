@@ -1,0 +1,121 @@
+Dear All,
+
+PFA the Problem Statement 12 - Assignment 1. 
+
+Contents inside Assign1_PS12.pdf:
+
+Assignment 1 – PS12 - Optimal Planner - [Weightage 12%]
+Read through this entire document very carefully before you start!
+A delivery robot agent is designed to find an optimal route in a warehouse represented as a grid
+environment. The robot must move from the Start position to the Goal position while avoiding
+blocked cells. The robot can move only in the following directions: Up, Down, Left, and Right.
+Diagonal movement is not allowed. Each move has a path cost of 1 unit.
+The heuristic function used is the Manhattan Distance: ℎ(𝑛) = ∣𝑥
+𝑔 − 𝑥
+𝑛
+∣ + ∣𝑦
+𝑔 − 𝑦
+𝑛
+∣
+Using the given grid environment, perform Local Beam Search to identify the optimal route from
+the Start state(S) to the Goal state(G). Here, X represents blocked cells (obstacles).
+Use Local Beam Search with 𝑘 = 2, 𝑡𝑜 𝑠𝑜𝑙𝑣𝑒 the given grid environment.
+1. Explain the heuristic and cost functions used in the search process.
+At each iteration:
+2. Generate successor states
+3. Remove duplicate states
+4. Compute heuristic values using Manhattan Distance
+5. Select the best beam states
+6. Implement the algorithm in PYTHON
+7. Print:
+a. Selected k beam states,
+b. Heuristic values,
+c. Final path from start to goal,
+d. And total path cost.
+0 1 2 3 4
+0 X
+1 X X
+2 X
+3 X X
+4
+Evaluation will be conducted comparatively and based on the following key criteria:
+1. PEAS Definition and Justification: Clearly define the PEAS (Performance measure,
+Environment, Actuators, Sensors) for the given agent type. Justify the choice of algorithm, its
+complexity, data structures used, and the design of fringes.
+2. Code Quality: Ensure neat, efficient, and well-commented code.
+3. Output Requirements: The solution must print the expected output along with a proper
+complexity analysis, exactly as mentioned in the problem statement.
+Deliverables:
+● PDF document designPSXX_<group id>.pdf detailing your solution.
+● [Group id] _Contribution.xlsx mentioning the contribution of each student in terms of
+percentage of work done. Columns must be “Student Registration Number”, “Name”,
+“Percentage of contribution out of 100%”. If a student did not contribute at all, it will be
+0%, if all contributed then 100% for all.
+● inputPSXX.txt file used for testing
+● outputPSXX.txt file generated while testing
+● .py file containing the python code. Create a single notebook. Do not fragment your code
+into multiple files
+● Zip all of the above files including the design document in a folder with the name:
+○ [Group id] _A1_PSXX_XXXXXXXXXX.zip and submit the zipped file.
+○ Group Id should be given as Gxxx where xxx is your group number. For example,
+if your group is 26, then you will enter G026 as your group id.
+Instructions:
+● It is compulsory to make use of the data structure(s) / algorithms mentioned in the
+problem statement.
+● Ensure that all data structure insert and delete operations throw appropriate messages
+when their capacity is empty or full. Also ensure basic error handling is implemented.
+● For the purposes of testing, you may implement some functions to print the data
+structures or other test data. But all such functions must be commented before
+submission.
+● Make sure that your read, understand, and follow all the instructions
+● Ensure that the input, prompt and output file guidelines are adhered to. Deviations from
+the mentioned formats will not be entertained.
+● The input, prompt and output samples shown here are only a representation of the syntax
+to be used. Actual files used to evaluate the submissions will be different. Hence, do not
+hard code any values into the code.
+● Please note that the design document must include:
+○ One alternate way of modeling the problem with the performance implications.
+○ Writing a good technical report and well documented code is an art. Your report
+cannot exceed 4 pages. Your code must be modular and quite well documented.
+○ You may ask queries in this dedicated discussion section. Beware that only hints
+will be provided and queries asked in other channels like MS Teams, emails,
+Taxila inbox will not be responded to.
+Deadline
+1. The strict deadline for submission of the assignment is 8th June 2026 11:55 PM IST
+(Monday).
+2. The deadline has been set considering extra days from the regular duration in order to
+accommodate any challenges you might face. No further extensions will be entertained.
+3. Late submissions will be evaluated as below. Submissions made between:
+a. 8th June 2026 11:56PM to 9th June 2026 11:55PM → Deduct 2M for late
+submission and evaluation for 10 marks.
+b. 9th June 2026 11:56PM to 10th June 2026 11:55PM → Deduct 6M for late
+
+
+submission and evaluation for 6marks.
+c. Beyond 10th June 2026 11:55PM → No evaluations, 0 marks will be awarded.
+How to submit
+● This is a group assignment.
+● Each group has to make one submission (only one, no resubmission) of solutions.
+● Each group should zip all the deliverables in one zip file and name the zipped file as
+[Group id] _A1_PSXX_XXXXXXXXXX.zip and submit the zipped file.
+● Group Id should be given as Gxxx where xxx is your group number. For example, if your
+group is 26, then you will enter G026 as your group id.
+● Assignments should be submitted via Taxila > Assignment section. Assignments
+submitted via other means like email etc. will not be graded.
+Evaluation
+● The assignment carries 12 Marks.
+● Grading will depend on:
+● Fully executable code with all functionality working as expected
+○ Well-structured and commented code
+○ Accuracy of the design document.
+○ Every bug in the functionality will have negative marking.
+○ Marks will be deducted if your program fails to read the input file used for
+evaluation due to change / deviation from the required syntax.
+● We encourage students to take the upcoming assignments and examinations seriously and
+submit only original work. Please note that plagiarism in assignments will be taken
+seriously. Refer to the detailed policy here.
+● Source code files which contain compilation errors will get at most 25% of the value of
+that question.
+Readings
+Artificial Intelligence: A Modern Approach Textbook by Peter Norvig and Stuart J. Russell, 4th
+Edition
