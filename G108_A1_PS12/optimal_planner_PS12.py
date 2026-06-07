@@ -408,20 +408,45 @@ def resolve_path(file_name: str) -> Path:
     return Path(__file__).resolve().parent / path
 
 
+def read_grid_from_stdin() -> Tuple[Grid, int]:
+    """Prompt the user to enter the grid and beam width at runtime."""
+    print("Enter number of rows and columns (e.g. 5 5):")
+    dims = input().split()
+    if len(dims) != 2 or not all(d.isdigit() for d in dims):
+        raise ValueError("Please enter exactly two positive integers for rows and columns.")
+    rows, columns = int(dims[0]), int(dims[1])
+    if rows <= 0 or columns <= 0:
+        raise ValueError("Grid dimensions must be positive integers.")
+
+    print(f"Enter {rows} grid rows, each with {columns} space-separated cells")
+    print("  (S = Start, G = Goal, X = Blocked, 0 = Free):")
+    grid: Grid = []
+    for row_index in range(rows):
+        print(f"  Row {row_index}: ", end="")
+        parts = input().split()
+        if len(parts) != columns:
+            raise ValueError(
+                f"Row {row_index} must contain {columns} cells, but got {len(parts)}."
+            )
+        grid.append([normalize_cell(part) for part in parts])
+
+    print("Enter beam width k (press Enter to use default 2): ", end="")
+    k_input = input().strip()
+    beam_width = int(k_input) if k_input.isdigit() and int(k_input) > 0 else 2
+    return grid, beam_width
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run PS12 Local Beam Search planner.")
-    parser.add_argument("--input", default="inputPS12.txt", help="Input grid file path.")
     parser.add_argument("--output", default="outputPS12.txt", help="Output trace file path.")
-    parser.add_argument("--k", type=int, default=2, help="Beam width. Default is 2.")
     args = parser.parse_args()
 
-    input_path = resolve_path(args.input)
     output_path = resolve_path(args.output)
 
     try:
-        grid = read_grid(input_path)
-        result = local_beam_search(grid, args.k)
-        report = build_output_report(grid, result, args.k)
+        grid, beam_width = read_grid_from_stdin()
+        result = local_beam_search(grid, beam_width)
+        report = build_output_report(grid, result, beam_width)
         output_path.write_text(report, encoding="utf-8")
         print(report)
         return 0 if result.found else 2

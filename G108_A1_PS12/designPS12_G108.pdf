@@ -1,123 +1,99 @@
 %PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document (opensource)
 1 0 obj
-<< /Type /Catalog /Pages 2 0 R >>
+<<
+/F1 2 0 R /F2 3 0 R /F3 4 0 R
+>>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
 endobj
 3 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
 endobj
 4 0 obj
-<< /Length 4155 >>
-stream
-BT /F1 16 Tf 42 805 Td (Assignment 1 - PS12 - Optimal Planner) Tj ET
-BT /F1 9 Tf 42 776 Td (Group ID: G108) Tj ET
-BT /F1 9 Tf 42 755 Td (Team members: ARTHIKA G.; SRINEVEDA R S.; ASWATHY H.; AMIYA PALAI.; KUTAREKAR) Tj ET
-BT /F1 9 Tf 42 744 Td (NISHCHAL AJAY.) Tj ET
-BT /F1 12 Tf 42 723 Td (1. Problem Definition) Tj ET
-BT /F1 9 Tf 42 698 Td (The problem is to plan a route for a delivery robot in a static 5 x 5 warehouse) Tj ET
-BT /F1 9 Tf 42 687 Td (grid. The robot starts at S = \(0, 0\), must reach G = \(4, 4\), and must avoid blocked) Tj ET
-BT /F1 9 Tf 42 676 Td (cells marked X. The allowed moves are Up, Down, Left, and Right. Diagonal movement) Tj ET
-BT /F1 9 Tf 42 665 Td (is not allowed. Each valid move has cost 1.) Tj ET
-BT /F1 9 Tf 42 644 Td (The blocked cells in the supplied grid are \(0, 3\), \(1, 1\), \(1, 3\), \(2, 1\), \(3, 2\),) Tj ET
-BT /F1 9 Tf 42 633 Td (and \(3, 3\). The search uses Local Beam Search with beam width k = 2.) Tj ET
-BT /F1 12 Tf 42 612 Td (2. PEAS Definition) Tj ET
-BT /F1 9 Tf 42 587 Td (Performance measure: Reach the goal from the start, avoid obstacles and invalid) Tj ET
-BT /F1 9 Tf 42 576 Td (moves, minimize total path cost, and print a clear search trace with selected beam) Tj ET
-BT /F1 9 Tf 42 565 Td (states and heuristic values.) Tj ET
-BT /F1 9 Tf 42 544 Td (Environment: A fully observable, deterministic, static 2D warehouse grid containing) Tj ET
-BT /F1 9 Tf 42 533 Td (free cells, blocked cells, one start state, and one goal state.) Tj ET
-BT /F1 9 Tf 42 512 Td (Actuators: Move Up, Move Down, Move Left, and Move Right.) Tj ET
-BT /F1 9 Tf 42 491 Td (Sensors: The robot reads its current position, grid boundaries, blocked cells, start) Tj ET
-BT /F1 9 Tf 42 480 Td (position, and goal position from the input grid.) Tj ET
-BT /F1 12 Tf 42 459 Td (3. Heuristic And Cost Functions) Tj ET
-BT /F1 9 Tf 42 434 Td (The heuristic function is Manhattan Distance:) Tj ET
-BT /F1 9 Tf 42 413 Td (h\(n\) = |goal_row - current_row| + |goal_column - current_column|) Tj ET
-BT /F1 9 Tf 42 392 Td (This heuristic is appropriate because the robot can move only horizontally or) Tj ET
-BT /F1 9 Tf 42 381 Td (vertically. It gives the minimum number of moves needed to reach the goal in an) Tj ET
-BT /F1 9 Tf 42 370 Td (obstacle-free grid.) Tj ET
-BT /F1 9 Tf 42 349 Td (The cost function assigns cost 1 to every valid move. Therefore:) Tj ET
-BT /F1 9 Tf 42 328 Td (g\(n\) = number of moves from S to n) Tj ET
-BT /F1 9 Tf 42 317 Td (total path cost = number of moves in the final route) Tj ET
-BT /F1 9 Tf 42 296 Td (For the given grid, the Manhattan lower bound from S = \(0, 0\) to G = \(4, 4\) is 8.) Tj ET
-BT /F1 9 Tf 42 285 Td (The implemented search finds a route of cost 8, so the route is optimal for this) Tj ET
-BT /F1 9 Tf 42 274 Td (grid.) Tj ET
-BT /F1 12 Tf 42 253 Td (4. Algorithm Design) Tj ET
-BT /F1 9 Tf 42 228 Td (The program implements Local Beam Search with k = 2. The initial beam contains only) Tj ET
-BT /F1 9 Tf 42 217 Td (the start node. At every iteration, successors are generated from all states in the) Tj ET
-BT /F1 9 Tf 42 206 Td (current beam using the move order Up, Down, Left, Right. Invalid successors are) Tj ET
-BT /F1 9 Tf 42 195 Td (removed if they are outside the grid, blocked by X, or already present in the same) Tj ET
-BT /F1 9 Tf 42 184 Td (path.) Tj ET
-BT /F1 9 Tf 42 163 Td (Duplicate states are removed by position. If the same position is reached through) Tj ET
-BT /F1 9 Tf 42 152 Td (more than one path, the implementation keeps the best node using the deterministic) Tj ET
-BT /F1 9 Tf 42 141 Td (order: lower heuristic, lower path cost, lower row index, lower column index, and) Tj ET
-BT /F1 9 Tf 42 130 Td (finally lexicographic path order. The best k states are inserted into a bounded) Tj ET
-BT /F1 9 Tf 42 119 Td (BeamFringe and become the next beam. The search stops when the goal is selected in) Tj ET
-BT /F1 9 Tf 42 108 Td (the beam or when no valid successor remains.) Tj ET
-BT /F1 9 Tf 42 87 Td (For the given grid, the final path is:) Tj ET
-BT /F1 9 Tf 42 66 Td (\(0, 0\) -> \(0, 1\) -> \(0, 2\) -> \(1, 2\) -> \(2, 2\) -> \(2, 3\) -> \(2, 4\) -> \(3, 4\)) Tj ET
-endstream
+<<
+/BaseFont /Courier /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
+>>
 endobj
 5 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+<<
+/Contents 10 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 9 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 6 0 obj
-<< /Length 3370 >>
-stream
-BT /F1 9 Tf 42 805 Td (-> \(4, 4\)) Tj ET
-BT /F1 9 Tf 42 784 Td (Total path cost = 8.) Tj ET
-BT /F1 12 Tf 42 763 Td (5. Data Structures And Fringe Design) Tj ET
-BT /F1 9 Tf 42 738 Td (SearchNode stores the current position, full path, path cost, and heuristic value.) Tj ET
-BT /F1 9 Tf 42 727 Td (IterationRecord stores the trace for each iteration: current beam, generated) Tj ET
-BT /F1 9 Tf 42 716 Td (successors, duplicate-free successors, and selected beam states. BeamFringe is a) Tj ET
-BT /F1 9 Tf 42 705 Td (bounded queue-like structure with capacity k. Its insert operation raises a clear) Tj ET
-BT /F1 9 Tf 42 694 Td (error when the fringe is full, and its delete operation raises a clear error when) Tj ET
-BT /F1 9 Tf 42 683 Td (the fringe is empty. This satisfies the required data-structure error handling.) Tj ET
-BT /F1 9 Tf 42 662 Td (The grid is stored as a two-dimensional list. Candidate states are sorted using) Tj ET
-BT /F1 9 Tf 42 651 Td (Python's stable sorting, and duplicates are removed using a dictionary keyed by grid) Tj ET
-BT /F1 9 Tf 42 640 Td (position.) Tj ET
-BT /F1 12 Tf 42 619 Td (6. Complexity Analysis) Tj ET
-BT /F1 9 Tf 42 594 Td (Let k be the beam width, b be the branching factor, and d be the depth of the) Tj ET
-BT /F1 9 Tf 42 583 Td (solution. In this problem, b <= 4 because only four actions are possible. At each) Tj ET
-BT /F1 9 Tf 42 572 Td (level, at most k states are expanded and up to k*b successors are generated. The) Tj ET
-BT /F1 9 Tf 42 561 Td (successors are sorted to select the best k states.) Tj ET
-BT /F1 9 Tf 42 540 Td (Time complexity: O\(d * k * b log\(k*b\)\).) Tj ET
-BT /F1 9 Tf 42 519 Td (Space complexity: O\(k * d\), because each selected beam node stores its path. With) Tj ET
-BT /F1 9 Tf 42 508 Td (fixed k = 2 and b <= 4, the search is memory efficient compared with exhaustive) Tj ET
-BT /F1 9 Tf 42 497 Td (search.) Tj ET
-BT /F1 12 Tf 42 476 Td (7. Alternate Modeling Approach) Tj ET
-BT /F1 9 Tf 42 451 Td (An alternate way to model the problem is as a graph search problem solved using A*) Tj ET
-BT /F1 9 Tf 42 440 Td (Search. Each free grid cell becomes a node, and edges connect valid four-directional) Tj ET
-BT /F1 9 Tf 42 429 Td (neighbors with cost 1. A* uses f\(n\) = g\(n\) + h\(n\), where g\(n\) is the path cost so) Tj ET
-BT /F1 9 Tf 42 418 Td (far and h\(n\) is Manhattan Distance. With this admissible heuristic, A* can guarantee) Tj ET
-BT /F1 9 Tf 42 407 Td (an optimal path if one exists, but it may require more memory because it maintains) Tj ET
-BT /F1 9 Tf 42 396 Td (larger open and closed lists. Local Beam Search uses less memory by retaining only k) Tj ET
-BT /F1 9 Tf 42 385 Td (promising states at each level, but it can prune alternatives aggressively in harder) Tj ET
-BT /F1 9 Tf 42 374 Td (grids.) Tj ET
-BT /F1 12 Tf 42 353 Td (8. Implementation Notes) Tj ET
-BT /F1 9 Tf 42 328 Td (The Python file is modular and reads the grid from inputPS12.txt, so the grid is not) Tj ET
-BT /F1 9 Tf 42 317 Td (hardcoded. The output trace is written to outputPS12.txt and printed to the console.) Tj ET
-BT /F1 9 Tf 42 306 Td (Basic error handling is included for invalid input files, wrong dimensions, missing) Tj ET
-BT /F1 9 Tf 42 295 Td (start or goal states, invalid grid symbols, invalid k values, full fringe insertion,) Tj ET
-BT /F1 9 Tf 42 284 Td (and empty fringe deletion.) Tj ET
-endstream
+<<
+/Contents 11 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 9 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 7 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+<<
+/PageMode /UseNone /Pages 9 0 R /Type /Catalog
+>>
+endobj
+8 0 obj
+<<
+/Author (\(anonymous\)) /CreationDate (D:20260605202354+05'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20260605202354+05'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (\(unspecified\)) /Title (\(anonymous\)) /Trapped /False
+>>
+endobj
+9 0 obj
+<<
+/Count 2 /Kids [ 5 0 R 6 0 R ] /Type /Pages
+>>
+endobj
+10 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2459
+>>
+stream
+GatU4?#SK-&q0MXR$S2jpGuPVhb)9$Fd"Z8VL,YSp[/e&Yb3;riiPVK,aC3ErqHXg8[b*J[F#dXU.3XOcHM\4`o)CQf_uWq^tT%jFFaJiYZLo9;$`(q3+#?C:RhlKfLKrDB,Hd[5racY.%89@$,SldiXAZA7;;#h$Bm0\+P2gdMgg0IS&1nNT.YN,U%s</S,KT.Td1"%n6f,11foR:Gsf+H$n$!Ma$-$/Ip:/9;Su4'32c<^/H-0<J&BCrbNFf*Dj0(MGLtSi(W4,n__:oB^3qs!G(U"93(%DKV;OWKo=_a@)9ThCmf'kM+--Vu-g%,s,WMJ*%Yi1s5;9@1^6>:,iTfbDhI/&XNr?gTEGD]NHf@Jh_,6dT-u#?Jc&t\A$Mj)Ko'1W5n'Gj;hd68-rkJ'2*,]2F?:-pV,@=])KM-CbiTan_2u.TFKjM[oh\Z+Uq>:(*I_D1Wrd:,@6iKaX&Uj[aEL*7Oo_+n-Nhb"[i-`K"R#q:o+f?0nN>0R)2K2,eN&/]]5JTcf''TcVicKFZ0Cj\g9^!(KK.OpEG_#%QU<rVJ0a1`G>8%JLV!'XhQ&n8(Uc#c^ne%["$4Y3A=.3f'5QkF:Jd3K6,s"J'/QmqGm-8DP-;l?:)WpMnm\\hL]Xq6$BKDuF#^F?&jMbgI>G!/e70W.]I5ll+fFqTFGC\HV<l2-X`@"hU60h]?6_q9gds[V5[<S>j1ub)V+HjV1m0q:Y"/!Ce?"pe$/R)9p_&4J5_+D?#bLF1>)1sBr64[9E3&dGbPFB&LTcsgNTet[pEmDj)(*n7sN7)*Y^(4#04GRP`-OJYf\JlO.6!"b"f=!Q3V+&Hp`I\\hi8.2u%.JMlYPI3^0EZe)_;5?>Y?\.D-*jJB;cLT@-qFec.;<sX3Hm@l9NSGT7K:.q?,7n5"9&<uMin@bBs^*>@5'hDd5pq4gmmR!UP^l8+qt4^hX@)'N<VnhHK$)$9]F\*HUHmeaG0296:6Up,X$ic>:Bd5[3.?.UhCb#VWqcAXb`h%Uo7!>n.HSqUp$4Q_`2Gah\<HEUkY3!asOJ!HPa_'19Q0n;,\YDjL$6:FkA0IdmDO3JSb+Ts("P[acp4lHW#&e*<Ng-&PhlqW.ml#)B;g06'qdhBMW`qn!Okj)k95)X0/TI9t7.7-d.t(TVS#K'-cK8Cu@GUll3fo6?#X9B7(.=8ZAc'fkqtY5k#h_h7200\`,@[(.l,]5b,\N7eU;0S>'CJ33#.)L$ja4VDiuY9P6?7?8s.:QQ%ij[uO>sE&rqSS0\)_Vf=U5*!`X=7"3jr%Th6Y9eVZoPR<dY:ioSRH>eMCANk/h/k*fR+rPfdS],HhhAk5n2(Xa+[gOhKD5UZ@4<Q<pUX5(q#:<!IdGRO:/jOA9(1tibpt>;EMiJV939pCt"pmaY$"!*Z8k4NoUgZ^$87U2^A=E#n_CM?<iGcf$2Iq&YJ>6P-1*6bu*=^HEi*SF+>,'Q9Q8_3pB-##6"O?VS$m@,TmIqNre_QJI]n/34eKi1B;EVb:ODX.J/,Z;p</A,$psrBQn9*nRchcq#36khiN#.KY8,&K(o?<1/&km.n^_Dm=Q(jP&BF7C9&ArsC/?XSD-]%u0+/'=1rG>*Q19-"S.Q&a#*J,dNCM'B1H.hn`Xo[CI5lejgW=W"D.4o7J`2VO/GXdP\Z,)u5mQIf*r%(;\:A2`U:P7'Qkj5^GE(jMG8'jONRWD:UV`11!W[XE^LEs6FRU7%gqgFNWdGWr92Db!SN*[#44X/A`CWgpCF-ofN9tq8Pcb.f/d1t];Fu./4'&F-dPi:PS_r>bp33HJ1Bq.Rd?<mj$dYcjZDKBK'ml,o0-33:6`,PFp5\%[84g:<"8Y&7]9j?@\JsM%&=ts?`@E."qGd2:O94snc?X@=U@gYX(Q\CjL[&M><1E@FS_#"4iPB8YVdB4*+aQp6q9NPiY20o4M%rpU&d*#bb0YjI";55a5OWUC8p8GThUtL:(4gr0"UuKB-LS1%=8F:M90D1Ri\P[/F(F;M3CKK6%UMUY==dh<5TW'236E%%8W%oR9NalkIbp1qT(TD`r37c:r>-&[611J]fW$P_P;YakKh%aHQ_6/+_s39.A2>`WR<bBfN]-]S@=QrB5<Q$#;QB1Oubj[ZmNMq/V<`3MljaPi-%CJ$35^Hm(5WDC0%sUQU6qNc[8Ar>#i;4qIr&F<8\^.jqAqfJT_dp&qlK.')it,It[a$S*4/Q9O0l<kPU0C^G#\daX)A%+j[?U25oJjs_+rtaMiX_Y0D-[ZW;W[I^$e:fi_ng]R;pa0]BDo]ud,l+&lsRK%?Y6pq`+ag5<t*BY(Eq#V>"rdh\UK4#IURr0Q*t.Uqgrt-<J:&?drluS=&bXLAR#TcN[JOTlfpel^>=hW7Q:[J^]h`*G=`1i\5_M\MbEW3^DN1NXb)=c\dWZI?YtPC54`T1#jDc.kZdD@loRu73=1n!!2[+F7f~>endstream
+endobj
+11 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2204
+>>
+stream
+GatU39on$g'#"%CW68Z+]l(!ODZuU63g0j]+>]LT(t_JgBW37u/Wje2lAkoCU8X-]1Nq\!(P+J;V8oT;YDO;$#_;ebf`Ab?^ct&&i#uoOi%^-uo*Km%gcXDO2B:/,V+"L*aO6=C+t]JSDOt`Z1B>nZ]\?-JkS_:8o*u/s0-Y<bK:S+HZ<PuZ%lSXmrf<O5c@-tZ=:rUQ'B]haGVSt:$m2hW[mOii1Fd'sXOdAp/X:"C(N'K+^:=;RPkrpAKOM/'r9^i,>+88HLXg$G`*(#@J7sTU61,n;&,C2[X<Di$L&6@P?h:%833W/*3]p\<8*bD+7n;mtY>5XVmR00IE?'Aha?dHUr(p9Lg<IGe[<:sSngd7o(+J;>AN4BBchgKsN/'Me$XchnjEV"^cJjNW"We1DI,S$2@H[_=%,M@>i/9BYklubU*`N:bN)U8'HaL(U<rbu.<^bV0^e#-^qj50dUhA]-ZEQmZ*&]ISqLZSK]AIab@%AX;`9qY"#*jgI>NqqaCT*#3N;36,mV<B6JfP=j=slsf(@?V\4utNPhYImYD5q*\cA3+,en.*n5TjMO7;3Hk*Y=3L#BG"XAq@6VdB0*.76=V&*Qf"se]+bc)Z!L#_Voo[&5T_?Tu@d?HA?luFi*+<W-AFr%$ETr4FhW(\g^M)Jq0sE<.u&L%639o/,'aW.BW(`.2JWoV/uspe);lLA^NKarH&<!6<YXAAW+D*)P[bSlqi[>i]hUD-Ou;!jW9Ji55=/8UpEm+M[k6`4e2bghAmGLG1(sW:>/lHGqo(N8:qXV_MS0OGUJkZUYhV=<@_'j7DU9qaO32]bhj\:pFl''BBT%/VI>Y,*n5qOfuT&rkD<5jTMW-7I:()+Q'If&\s:i$pdM,R<l3h6!Y>RPC.%&!XAfXV5.I.aIj\l<gQ%b$2.Q7pT%VT6O;EP?IU:e8W+8KA&`s(?4:q;u,LEuuXpJL+ZT*j;jTtF!1&+nr8f@Q$]=u7f7-+Y"g4P[a$BRR!Gg7spN725jGWLNkGpk3LU*B,D*tu<JHR8ot5,!TlCsg_^fC=d#8<(($T15c"8&;Atl*QjV2K)[L],g+hs00'THk,'Z'oB<E)ng*n,CfaaB3r9*(q*P(_1#=P;3GM<W1I2##H7<'5ko/VK^,tQEn_dj#7"S]>'rf>?j@_FX8OdOn7s\i^_#:p#H)![[lk?YDm]l.WGm.^Iq(P0g$)*'VN;gHpBp3)Bu'Z+@TMN*1&/$9/N\W+@G2[qcf;$W44qFkCn]D(j(a(QICt!@]`r(JYVaP?b:n4K(d+A<()B:Ae\QI>pSFdjoaPG`><UiGB9%q-5&E1BW3)5';s.]\?g8N:r/)6Ui@T^Hn]/!U-VWhfo4bY0Kap1]%Y/[R91b,*E!arUhi%!i:(5^qkLm[/5n"AALWSX#7Tm)8r2e+Q$m&T-7Ze&XVCSHS!Y9]t[!4b%A[#%#0V1_"_1m6D(gJ7s>+B"JB42Keq,l;\$H*#;73&7r3^W.R1T?'M&?+>?7eF;Ai6/"Jm;#(6\:\eN@dkl[`=FH4+-bEd-X".o=MWC),ird!V=&_T-T6sYL/ijA9!&empTnOEj]1NYOp8t8dt0p>m'\/Hj,cUE_\iImBNh>V=6f;khEj"NrW,*q=OZ=rK&_?/$]O\A:Vc$N3kS5H<^SI_3"q<9V1mf[g'QqqK(m\STh:g^^oOW:3]Us:lPR/ZLo!qp%)N;3&4%_k]p%8/oUj9G_KesG,GZ6b,"7dJfemRN#LYmc%eG2QSYjG06?D+3'<)u-25(b^5srPTng>kjD6`ZlK4XODQ_FYP&>s?95iF9RffVb#+Lc$NMVSmPq?YKb2i^$uV3@JmF$hp((t/d>)SI"&/tA0PADB!GXd.5b*^H`(WRqMUU%&i/7dn5GB19n:b@MEdMo!_S5gJ:4M.qafN?dfYqIli(%a$24Bj+b2an'U/\Cd(@F#.A>7H%5Ce5OCJ&8KnpdCI`Vcq`X[.&rF,^4'jm4-6Hagug=QAF?L&;^j9pdXomW-m,:gYbD.<5nC+?giO]c*O@(6`<f>8OjbsQ3_,sXT&,mMij&,FWi=\KH^e&:e)9ak=BSBXJU(]P,Z9op5f6'n%7i?KLBm:/C=hraZt`>d/;s+Fgg3Hb]*;WR,B`7ZA"_5DSVXpbSGO/U6atV5dD,SKZ=p.oja9Sg(FO^ioJ/r2Q#kQPQ+mBkRA&U%s&-or7K~>endstream
 endobj
 xref
-0 8
+0 12
 0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000121 00000 n 
-0000000191 00000 n 
-0000004398 00000 n 
-0000004524 00000 n 
-0000007946 00000 n 
+0000000061 00000 n 
+0000000112 00000 n 
+0000000219 00000 n 
+0000000331 00000 n 
+0000000436 00000 n 
+0000000640 00000 n 
+0000000844 00000 n 
+0000000912 00000 n 
+0000001192 00000 n 
+0000001257 00000 n 
+0000003808 00000 n 
 trailer
-<< /Size 8 /Root 1 0 R >>
+<<
+/ID 
+[<af73150a6cf37001de5e170496e1cbcb><af73150a6cf37001de5e170496e1cbcb>]
+% ReportLab generated PDF document -- digest (opensource)
+
+/Info 8 0 R
+/Root 7 0 R
+/Size 12
+>>
 startxref
-8072
+6104
 %%EOF
