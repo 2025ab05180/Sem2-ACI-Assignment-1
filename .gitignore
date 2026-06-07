@@ -19,9 +19,6 @@ env/
 # Jupyter
 .ipynb_checkpoints/
 
-# Local package/build artifacts
-*.zip
-
 # Generated outputs (uncomment if these are always derived)
 # outputPS12.txt
 # designPS12_G108.pdf
