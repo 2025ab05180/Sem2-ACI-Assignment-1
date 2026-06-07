@@ -438,13 +438,27 @@ def read_grid_from_stdin() -> Tuple[Grid, int]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run PS12 Local Beam Search planner.")
+    parser.add_argument("--input", default="inputPS12.txt", help="Input grid file path.")
     parser.add_argument("--output", default="outputPS12.txt", help="Output trace file path.")
+    parser.add_argument("--k", type=int, default=2, help="Beam width (must be > 0).")
+    parser.add_argument(
+        "--interactive",
+        action="store_true",
+        help="Read grid and beam width from stdin prompts instead of input file.",
+    )
     args = parser.parse_args()
 
+    input_path = resolve_path(args.input)
     output_path = resolve_path(args.output)
 
     try:
-        grid, beam_width = read_grid_from_stdin()
+        if args.interactive:
+            grid, beam_width = read_grid_from_stdin()
+        else:
+            if args.k <= 0:
+                raise ValueError("Beam width k must be greater than zero.")
+            grid = read_grid(input_path)
+            beam_width = args.k
         result = local_beam_search(grid, beam_width)
         report = build_output_report(grid, result, beam_width)
         output_path.write_text(report, encoding="utf-8")
